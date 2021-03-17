@@ -2,21 +2,33 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
 	<title>Items Management</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
 </head>
 <body>
+
+<div class="container">
 	<h1>Items Management</h1>
 	<form method="post" action="items.jsp">
-		 Item code: <input name="itemCode" type="text"><br>
-		 Item name: <input name="itemName" type="text"><br>
-		 Item price: <input name="itemPrice" type="text"><br>
-		 Item description: <input name="itemDesc" type="text"><br>
-		 <input name="btnSubmit" type="submit" value="Save">
-	</form>
+	 <div class="row">
+		 <div class="col">
+	
+			 Item code: <input name="itemCode" type="text"  class="form-control"><br></div> </div>
+			 Item name: <input name="itemName" type="text"  class="form-control"><br>
+			 Item price: <input name="itemPrice" type="text" class="form-control"><br>
+			 Item description: <input name="itemDesc" type="text" class="form-control"><br>
+			 <input name="btnSubmit" type="submit" value="Save" class="btn btn-primary">
+		</form>
+		 
+	
+</div>
+	
 	<%
 		//Insert item----------------------------------
 		
@@ -50,9 +62,11 @@
 		 session.setAttribute("statusMsg", stsMsg);
 		 } 
 		%>
-		<%
-		 out.print(session.getAttribute("statusMsg"));
 		
+		<div class="alert alert-success">
+		 <% out.print(session.getAttribute("statusMsg"));%>
+		</div>
+		<%
 		
 	 //showing the details in form
 	if("Update".equals("btnUpdate")){
